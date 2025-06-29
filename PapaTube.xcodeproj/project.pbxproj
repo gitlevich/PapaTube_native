@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F5D9051E2E11F74F00F9AF20 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = F5D9051D2E11F74F00F9AF20 /* Testing */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F510359E2E11D01400117901 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,22 +31,57 @@
 		F510358E2E11D01200117901 /* PapaTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PapaTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F510359D2E11D01400117901 /* PapaTubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapaTubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51035A72E11D01400117901 /* PapaTubeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapaTubeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5D905312E11F9AB00F9AF20 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F51035C72E11ED3D00117901 /* Exceptions for "Tests" folder in "PapaTube" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				UI/PapaTubeUITests.swift,
+				UI/PapaTubeUITestsLaunchTests.swift,
+				Unit/PapaTubeTests.swift,
+				Unit/VideoServiceTests.swift,
+			);
+			target = F510358D2E11D01200117901 /* PapaTube */;
+		};
+		F51035C82E11ED3D00117901 /* Exceptions for "Tests" folder in "PapaTubeTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Unit/PapaTubeTests.swift,
+				Unit/VideoServiceTests.swift,
+			);
+			target = F510359C2E11D01400117901 /* PapaTubeTests */;
+		};
+		F51035C92E11ED3D00117901 /* Exceptions for "Tests" folder in "PapaTubeUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				UI/PapaTubeUITests.swift,
+				UI/PapaTubeUITestsLaunchTests.swift,
+			);
+			target = F51035A62E11D01400117901 /* PapaTubeUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		F51035902E11D01200117901 /* PapaTube */ = {
+		F51035902E11D01200117901 /* Sources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PapaTube;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		F51035A02E11D01400117901 /* PapaTubeTests */ = {
+		F51035BA2E11EB4C00117901 /* Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PapaTubeTests;
+			exceptions = (
+				F51035C72E11ED3D00117901 /* Exceptions for "Tests" folder in "PapaTube" target */,
+				F51035C82E11ED3D00117901 /* Exceptions for "Tests" folder in "PapaTubeTests" target */,
+				F51035C92E11ED3D00117901 /* Exceptions for "Tests" folder in "PapaTubeUITests" target */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		F51035AA2E11D01400117901 /* PapaTubeUITests */ = {
+		F5D905242E11F81700F9AF20 /* PapaTubeIntegrationTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PapaTubeUITests;
+			path = PapaTubeIntegrationTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -59,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D9051E2E11F74F00F9AF20 /* Testing in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,9 +115,10 @@
 		F51035852E11D01200117901 = {
 			isa = PBXGroup;
 			children = (
-				F51035902E11D01200117901 /* PapaTube */,
-				F51035A02E11D01400117901 /* PapaTubeTests */,
-				F51035AA2E11D01400117901 /* PapaTubeUITests */,
+				F51035902E11D01200117901 /* Sources */,
+				F51035BA2E11EB4C00117901 /* Tests */,
+				F5D905242E11F81700F9AF20 /* PapaTubeIntegrationTests */,
+				F5D905302E11F9AB00F9AF20 /* Frameworks */,
 				F510358F2E11D01200117901 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +131,14 @@
 				F51035A72E11D01400117901 /* PapaTubeUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F5D905302E11F9AB00F9AF20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5D905312E11F9AB00F9AF20 /* Testing.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,7 +157,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				F51035902E11D01200117901 /* PapaTube */,
+				F51035902E11D01200117901 /* Sources */,
+				F51035BA2E11EB4C00117901 /* Tests */,
 			);
 			name = PapaTube;
 			packageProductDependencies = (
@@ -130,11 +180,9 @@
 			dependencies = (
 				F510359F2E11D01400117901 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				F51035A02E11D01400117901 /* PapaTubeTests */,
-			);
 			name = PapaTubeTests;
 			packageProductDependencies = (
+				F5D9051D2E11F74F00F9AF20 /* Testing */,
 			);
 			productName = PapaTubeTests;
 			productReference = F510359D2E11D01400117901 /* PapaTubeTests.xctest */;
@@ -152,9 +200,6 @@
 			);
 			dependencies = (
 				F51035A92E11D01400117901 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				F51035AA2E11D01400117901 /* PapaTubeUITests */,
 			);
 			name = PapaTubeUITests;
 			packageProductDependencies = (
@@ -195,6 +240,9 @@
 			);
 			mainGroup = F51035852E11D01200117901;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F5D9051C2E11F74F00F9AF20 /* XCRemoteSwiftPackageReference "swift-testing" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F510358F2E11D01200117901 /* Products */;
 			projectDirPath = "";
@@ -567,6 +615,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F5D9051C2E11F74F00F9AF20 /* XCRemoteSwiftPackageReference "swift-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F5D9051D2E11F74F00F9AF20 /* Testing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F5D9051C2E11F74F00F9AF20 /* XCRemoteSwiftPackageReference "swift-testing" */;
+			productName = Testing;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F51035862E11D01200117901 /* Project object */;
 }
