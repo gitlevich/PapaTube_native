@@ -36,10 +36,9 @@
 		F510359D2E11D01400117901 /* PapaTubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapaTubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51035A72E11D01400117901 /* PapaTubeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapaTubeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5D905312E11F9AB00F9AF20 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
-		F5D9059B2E1207F900F9AF20 /* .gitconfig */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitconfig; sourceTree = "<group>"; };
+		F5D9059B2E1207F900F9AF20 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F5D9059D2E12094900F9AF20 /* .env.example */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = .env.example; sourceTree = "<group>"; };
 		F5D905C52E12099800F9AF20 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
-		F5D905D12E12284100F9AF20 /* PapaTube.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = PapaTube.xctestplan; path = ../PapaTube.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -122,8 +121,7 @@
 		F51035852E11D01200117901 = {
 			isa = PBXGroup;
 			children = (
-				F5D905D12E12284100F9AF20 /* PapaTube.xctestplan */,
-				F5D9059B2E1207F900F9AF20 /* .gitconfig */,
+				F5D9059B2E1207F900F9AF20 /* .gitignore */,
 				F5D9059D2E12094900F9AF20 /* .env.example */,
 				F5D905C52E12099800F9AF20 /* .env */,
 				F51035902E11D01200117901 /* Sources */,
