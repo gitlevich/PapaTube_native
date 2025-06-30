@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct PlaylistSpec {
+struct PlaylistSpec: Sendable {
     let keywords: [String]
     let maxResults: Int
     let language: String?

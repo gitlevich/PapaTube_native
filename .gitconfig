@@ -1,0 +1,30 @@
+# Xcode
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+
+# Build
+build/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Mac
+.DS_Store
+
+# Secrets and API Keys
+Secrets.xcconfig
+LocalConfig.swift
+Secrets.swift
+Secrets.plist
+.env
+.env.*
+
+# Local configuration
+*.local
+*.private
