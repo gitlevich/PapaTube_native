@@ -1,6 +1,11 @@
 import Foundation
 import Testing
+import DotEnv
+
 @testable import PapaTube
+
+// Marker class used to locate the test bundle that contains resources such as .env
+private final class TestBundleMarker {}
 
 @Suite("VideoService Integration")
 struct VideoServiceIntegrationTests {
@@ -9,9 +14,20 @@ struct VideoServiceIntegrationTests {
     
     /// Returns a configured `VideoService` or skips the test when no API key is available.
     private func makeService() throws -> VideoService {
-        let key = ProcessInfo.processInfo.environment["YOUTUBE_API_KEY"] ?? ""
-        try #require(!key.isEmpty, "`YOUTUBE_API_KEY` env var not configured – skipping live YouTube integration test.")
-        return VideoService(apiKey: key)
+        let bundle = Bundle(for: TestBundleMarker.self)
+        
+        guard let envURL = bundle.url(forResource: ".env", withExtension: nil) else {
+            fatalError(".env not found in \(bundle)")
+        }
+        let absPath = envURL.path
+        try DotEnv.load(path: absPath)
+        
+        // Retrieve the API key that DotEnv injected into the environment
+        let key = ProcessInfo.processInfo.environment["YOUTUBE_DATA_API_KEY"] ?? ""
+        try #require(!key.isEmpty, "`YOUTUBE_DATA_API_KEY` env var not configured – skipping live YouTube integration test.")
+        let appConfig = try AppConfig()
+        
+        return VideoService(appConfig: appConfig)
     }
     
     /// Very loose heuristic for detecting Russian text – looks for at least one Cyrillic character.
@@ -56,4 +72,3 @@ struct VideoServiceIntegrationTests {
         }
     }
 }
-

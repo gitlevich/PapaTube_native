@@ -9,7 +9,10 @@ import DotEnv
 import Foundation
 
 public struct AppConfig {
-    enum Error: Swift.Error { case missingKey }
+    enum Error: Swift.Error {
+        case missingKey
+        case missingDotEnv
+    }
 
     let youtubeApiKey: String
 
@@ -23,7 +26,7 @@ public struct AppConfig {
 
 
 public enum EnvKey: String {
-    case youtube = "YOUTUBE_API_KEY"
+    case youtube = "YOUTUBE_DATA_API_KEY"
 }
 
 extension Dictionary where Key == String {

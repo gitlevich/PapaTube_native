@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F544686C2E122A4F00CD74D2 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = F544686B2E122A4F00CD74D2 /* Testing */; };
 		F5D9051E2E11F74F00F9AF20 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = F5D9051D2E11F74F00F9AF20 /* Testing */; };
-		F5D9059C2E12080000F9AF20 /* .gitconfig in Resources */ = {isa = PBXBuildFile; fileRef = F5D9059B2E1207F900F9AF20 /* .gitconfig */; };
 		F5D905C92E120A6800F9AF20 /* DotEnv in Frameworks */ = {isa = PBXBuildFile; productRef = F5D905C82E120A6800F9AF20 /* DotEnv */; };
+		F5D905CF2E121CFE00F9AF20 /* .env in Resources */ = {isa = PBXBuildFile; fileRef = F5D905C52E12099800F9AF20 /* .env */; };
+		F5D905D02E121D0B00F9AF20 /* .env in Resources */ = {isa = PBXBuildFile; fileRef = F5D905C52E12099800F9AF20 /* .env */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,7 @@
 		F5D9059B2E1207F900F9AF20 /* .gitconfig */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitconfig; sourceTree = "<group>"; };
 		F5D9059D2E12094900F9AF20 /* .env.example */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = .env.example; sourceTree = "<group>"; };
 		F5D905C52E12099800F9AF20 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
+		F5D905D12E12284100F9AF20 /* PapaTube.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = PapaTube.xctestplan; path = ../PapaTube.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -109,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F544686C2E122A4F00CD74D2 /* Testing in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +122,7 @@
 		F51035852E11D01200117901 = {
 			isa = PBXGroup;
 			children = (
+				F5D905D12E12284100F9AF20 /* PapaTube.xctestplan */,
 				F5D9059B2E1207F900F9AF20 /* .gitconfig */,
 				F5D9059D2E12094900F9AF20 /* .env.example */,
 				F5D905C52E12099800F9AF20 /* .env */,
@@ -209,6 +214,7 @@
 			);
 			name = PapaTubeUITests;
 			packageProductDependencies = (
+				F544686B2E122A4F00CD74D2 /* Testing */,
 			);
 			productName = PapaTubeUITests;
 			productReference = F51035A72E11D01400117901 /* PapaTubeUITests.xctest */;
@@ -267,7 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5D9059C2E12080000F9AF20 /* .gitconfig in Resources */,
+				F5D905CF2E121CFE00F9AF20 /* .env in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D905D02E121D0B00F9AF20 /* .env in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,6 +651,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F544686B2E122A4F00CD74D2 /* Testing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F5D9051C2E11F74F00F9AF20 /* XCRemoteSwiftPackageReference "swift-testing" */;
+			productName = Testing;
+		};
 		F5D9051D2E11F74F00F9AF20 /* Testing */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F5D9051C2E11F74F00F9AF20 /* XCRemoteSwiftPackageReference "swift-testing" */;

@@ -1,0 +1,352 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "Dy5Ct76T9u86VmiiXgktm2amI1g",
+  "nextPageToken": "CAoQAA",
+  "regionCode": "US",
+  "pageInfo": {
+    "totalResults": 1000000,
+    "resultsPerPage": 10
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "_RPDc3jqTo68YjmP3kzE4T_DvEM",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "KxJeEctWvxc"
+      },
+      "snippet": {
+        "publishedAt": "2021-05-21T17:00:09Z",
+        "channelId": "UCEK3tT7DcfWGWJpNEDBdWog",
+        "title": "Опекун (4К, комедия, реж. Эдгар Ходжикян, Альберт Мкртчян, 1970 г.)",
+        "description": "Смотрите наши фильмы на сайте https://cinema.mosfilm.ru/ Подпишитесь на наш канал и страницы в социальных сетях!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/KxJeEctWvxc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/KxJeEctWvxc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/KxJeEctWvxc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Киноконцерн \"Мосфильм\"",
+        "liveBroadcastContent": "none",
+        "publishTime": "2021-05-21T17:00:09Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "TpMo5uf8ft2kBFxHGhOnDcHLMfk",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "V2VfG50KTqg"
+      },
+      "snippet": {
+        "publishedAt": "2023-09-27T14:00:20Z",
+        "channelId": "UC7FDlGcSUqeSZHh1LRMM1OQ",
+        "title": "Друг Тыманчи. Художественный фильм (1970)",
+        "description": "Мальчик-эвенк Тыманча подружился с волчонком, которого подарил ему отец. Однако жители поселка настояли на том, ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/V2VfG50KTqg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/V2VfG50KTqg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/V2VfG50KTqg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Советские фильмы, спектакли и телепередачи ",
+        "liveBroadcastContent": "none",
+        "publishTime": "2023-09-27T14:00:20Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "B3ODGV78ja81EaxMah9UoqcQ2zg",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "b8dShMst32Y"
+      },
+      "snippet": {
+        "publishedAt": "2017-04-01T14:55:54Z",
+        "channelId": "UCxh_TkSralaVxmsLNYCXeoQ",
+        "title": "Городской романс (1970)",
+        "description": "Молодой врач Женя знакомится со студенткой педучилища Машей. Она переезжает жить к нему. Для него совместная ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/b8dShMst32Y/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/b8dShMst32Y/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/b8dShMst32Y/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Odesa Film Studio",
+        "liveBroadcastContent": "none",
+        "publishTime": "2017-04-01T14:55:54Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "cXzg8BzTXvXtMBKKRHhgvnY-l7g",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "9UGcyweYo2w"
+      },
+      "snippet": {
+        "publishedAt": "2011-05-30T07:13:38Z",
+        "channelId": "UCEK3tT7DcfWGWJpNEDBdWog",
+        "title": "Бег, 1 серия (4К, драма, реж. Александр Алов, Владимир Наумов, 1970 г.)",
+        "description": "Подписывайтесь на канал, чтобы не пропускать фильмы: @MosfilmRuOfficial 2-я серия доступна по ссылке: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/9UGcyweYo2w/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/9UGcyweYo2w/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/9UGcyweYo2w/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Киноконцерн \"Мосфильм\"",
+        "liveBroadcastContent": "none",
+        "publishTime": "2011-05-30T07:13:38Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "UYHpNk5BAG2XyqPPboVh3-c6e88",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "1Ig00Nj-sUs"
+      },
+      "snippet": {
+        "publishedAt": "2021-01-07T18:00:00Z",
+        "channelId": "UCEK3tT7DcfWGWJpNEDBdWog",
+        "title": "Молодые (драма, реж. Николай Москаленко, 1971 г.)",
+        "description": "Смотрите наши фильмы на сайте https://cinema.mosfilm.ru/ Подпишитесь на наш канал и страницы в социальных сетях!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/1Ig00Nj-sUs/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/1Ig00Nj-sUs/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/1Ig00Nj-sUs/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Киноконцерн \"Мосфильм\"",
+        "liveBroadcastContent": "none",
+        "publishTime": "2021-01-07T18:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "DQYf9aVHklCqlVEAYELqwCD2LII",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "wiYR0XSIEYs"
+      },
+      "snippet": {
+        "publishedAt": "2024-03-05T14:00:42Z",
+        "channelId": "UC7FDlGcSUqeSZHh1LRMM1OQ",
+        "title": "Насыпь. Фильм о Великой Отечественной войне (1970)",
+        "description": "Действие фильма происходит в годы Великой Отечественной войны на территории оккупированной фашистами Латвии.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/wiYR0XSIEYs/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/wiYR0XSIEYs/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/wiYR0XSIEYs/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Советские фильмы, спектакли и телепередачи ",
+        "liveBroadcastContent": "none",
+        "publishTime": "2024-03-05T14:00:42Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "8ZcvYQVoJjcls7VKKEeNyLh8wJw",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "4XB5H_nV3rM"
+      },
+      "snippet": {
+        "publishedAt": "2024-06-27T16:00:08Z",
+        "channelId": "UCldE4PV5jzxqcy4yrY4I0vA",
+        "title": "Начало (1970 год) мелодрама",
+        "description": "ПОДПИСЫВАЙТЕСЬ на канал и смотрите более 1000 фильмов: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/4XB5H_nV3rM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/4XB5H_nV3rM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/4XB5H_nV3rM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "КИНОПАНОРАМА",
+        "liveBroadcastContent": "none",
+        "publishTime": "2024-06-27T16:00:08Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "40S4p85ZZsaYvc1B6uTdzc44b2Y",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "rjqVBGWgeTk"
+      },
+      "snippet": {
+        "publishedAt": "2019-11-22T15:00:13Z",
+        "channelId": "UCEK3tT7DcfWGWJpNEDBdWog",
+        "title": "Песни моря (комедия, реж. Франчиск Мунтяну, 1970 г.)",
+        "description": "Смотрите наши фильмы - на сайте http://кино-мосфильм.рф Подпишитесь на наш канал и страницы в социальных сетях!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/rjqVBGWgeTk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/rjqVBGWgeTk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/rjqVBGWgeTk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Киноконцерн \"Мосфильм\"",
+        "liveBroadcastContent": "none",
+        "publishTime": "2019-11-22T15:00:13Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "xvBuq-dqb8GpJMnx9Dl_Wj_koTM",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "xL4SiNuCHz0"
+      },
+      "snippet": {
+        "publishedAt": "2025-06-27T09:15:22Z",
+        "channelId": "UC8E6ITKvM0QgkTxPZ-S0cyA",
+        "title": "Олеся / Olesya (1970) (Субтитры: Русские, Английские)",
+        "description": "Производство: СССР / Киностудия имени Довженко Жанр: Драма, Мелодрама Режиссёр: Борис Ивченко В ролях: Людмила ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/xL4SiNuCHz0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/xL4SiNuCHz0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/xL4SiNuCHz0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Russian Films",
+        "liveBroadcastContent": "none",
+        "publishTime": "2025-06-27T09:15:22Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "pMl7qC1lI7cjgqmzj82LEFjrEIA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "v0yG4G3hx8k"
+      },
+      "snippet": {
+        "publishedAt": "2021-09-13T14:00:19Z",
+        "channelId": "UC7FDlGcSUqeSZHh1LRMM1OQ",
+        "title": "Секретарь парткома. Фильм (1970)",
+        "description": "Телефильм \"Секретарь парткома\" все серии. Полину Гончаренко избирают секретарем партийной организации колхоза.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/v0yG4G3hx8k/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/v0yG4G3hx8k/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/v0yG4G3hx8k/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Советские фильмы, спектакли и телепередачи ",
+        "liveBroadcastContent": "none",
+        "publishTime": "2021-09-13T14:00:19Z"
+      }
+    }
+  ]
+}

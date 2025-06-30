@@ -14,31 +14,31 @@ actor VideoService {
     // Shared ISO-8601 date formatter for parsing YouTube timestamps.
     private static let iso8601 = ISO8601DateFormatter()
 
-    init(apiKey: String = ProcessInfo.processInfo.environment["YOUTUBE_API_KEY"] ?? "") {
-        self.apiKey = apiKey
+    init(appConfig: AppConfig) {
+        self.apiKey = appConfig.youtubeApiKey
     }
 
     func findMatching(_ spec: PlaylistSpec) async throws -> [Video] {
-        // Validate that we have an API key to talk to YouTube.
-        guard !apiKey.isEmpty else {
-            throw URLError(.userAuthenticationRequired, userInfo: [NSLocalizedDescriptionKey: "Missing YouTube API key. Set it in the YOUTUBE_API_KEY environment variable or pass it to VideoService's init(apiKey:)." ])
-        }
-
-        // Build the search request first.
-        let query = spec.keywords.joined(separator: "+")
-        var searchComponents = URLComponents(string: "https://www.googleapis.com/youtube/v3/search")!
+        // Build the search URL in a type‑safe way so we never end up with an unsupported URL.
+        var searchComponents = URLComponents()
+        searchComponents.scheme = "https"
+        searchComponents.host = "youtube.googleapis.com"
+        searchComponents.path = "/youtube/v3/search"
         searchComponents.queryItems = [
             .init(name: "part", value: "snippet"),
             .init(name: "type", value: "video"),
             .init(name: "maxResults", value: String(min(spec.maxResults, 50))), // API caps at 50 per request.
-            .init(name: "q", value: query),
+            .init(name: "q", value: spec.keywords.joined(separator: " ")),      // let URLComponents handle encoding
             .init(name: "key", value: apiKey)
         ]
         if let language = spec.language {
             searchComponents.queryItems?.append(.init(name: "relevanceLanguage", value: language))
         }
+        guard let searchURL = searchComponents.url else {
+            throw URLError(.badURL)
+        }
 
-        let (searchData, searchResponse) = try await session.data(from: searchComponents.url!)
+        let (searchData, searchResponse) = try await session.data(from: searchURL)
         guard (searchResponse as? HTTPURLResponse)?.statusCode == 200 else {
             throw URLError(.badServerResponse)
         }
@@ -48,14 +48,20 @@ actor VideoService {
         guard !ids.isEmpty else { return [] }
 
         // Fetch full details for the found IDs in one batch.
-        var videosComponents = URLComponents(string: "https://www.googleapis.com/youtube/v3/videos")!
+        var videosComponents = URLComponents()
+        videosComponents.scheme = "https"
+        videosComponents.host = "youtube.googleapis.com"
+        videosComponents.path = "/youtube/v3/videos"
         videosComponents.queryItems = [
             .init(name: "part", value: "snippet,contentDetails"),
             .init(name: "id", value: ids.joined(separator: ",")),
             .init(name: "key", value: apiKey)
         ]
+        guard let videosURL = videosComponents.url else {
+            throw URLError(.badURL)
+        }
 
-        let (videosData, videosResponse) = try await session.data(from: videosComponents.url!)
+        let (videosData, videosResponse) = try await session.data(from: videosURL)
         guard (videosResponse as? HTTPURLResponse)?.statusCode == 200 else {
             throw URLError(.badServerResponse)
         }
