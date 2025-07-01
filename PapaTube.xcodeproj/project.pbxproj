@@ -35,6 +35,7 @@
 		F51035A72E11D01400117901 /* PapaTubeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapaTubeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F53681082E136EEB009541C6 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		F536810A2E1370B9009541C6 /* PapaTube-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PapaTube-Info.plist"; sourceTree = "<group>"; };
+		F536810D2E1386FA009541C6 /* PapaTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PapaTube.entitlements; sourceTree = "<group>"; };
 		F5D905312E11F9AB00F9AF20 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
 		F5D9059B2E1207F900F9AF20 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +123,7 @@
 		F51035852E11D01200117901 = {
 			isa = PBXGroup;
 			children = (
+				F536810D2E1386FA009541C6 /* PapaTube.entitlements */,
 				F536810A2E1370B9009541C6 /* PapaTube-Info.plist */,
 				F5D9059B2E1207F900F9AF20 /* .gitignore */,
 				F51035902E11D01200117901 /* Sources */,
@@ -455,6 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PapaTube.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -488,6 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PapaTube.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

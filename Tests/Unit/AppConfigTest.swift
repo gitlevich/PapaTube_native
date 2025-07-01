@@ -31,4 +31,12 @@ struct AppConfigTests {
         let config = try AppConfig(bundle: nil, environment: stubEnv)
         #expect(config.youtubeApiKey == "abc123")
     }
+    
+    @Test("treats placeholder as missing")
+    func placeholderMissing() throws {
+        let env = ["YOUTUBE_DATA_API_KEY": "<#YOUR_KEY#>"]
+        try #require(throws: AppConfig.Error.self) {
+            _ = try AppConfig(bundle: nil, environment: env)
+        }
+    }
 }

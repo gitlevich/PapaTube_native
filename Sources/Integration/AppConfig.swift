@@ -20,7 +20,9 @@ public struct AppConfig {
                 environment: [String: String] = ProcessInfo.processInfo.environment) throws {
 
         // 1. Prefer explicit environment variable (handy for tests / CI).
-        if let key = environment[EnvKey.youtube.rawValue], !key.isEmpty {
+        if let key = environment[EnvKey.youtube.rawValue],
+           !key.isEmpty,
+           !AppConfig.isPlaceholder(key) {
             youtubeApiKey = key
             return
         }
@@ -28,12 +30,17 @@ public struct AppConfig {
         // 2. Fallback to bundle-embedded value.
         if let bundle,
            let key = bundle.infoDictionary?["YouTubeAPIKey"] as? String,
-           !key.isEmpty {
+           !key.isEmpty,
+           !AppConfig.isPlaceholder(key) {
             youtubeApiKey = key
             return
         }
 
         throw Error.missingKey
+    }
+
+    private static func isPlaceholder(_ value: String) -> Bool {
+        value.trimmingCharacters(in: .whitespacesAndNewlines).hasPrefix("<#")
     }
 }
 
