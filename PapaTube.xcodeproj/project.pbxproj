@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F53681092E136EEB009541C6 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F53681082E136EEB009541C6 /* Secrets.xcconfig */; };
+		F536810F2E145071009541C6 /* README.MD in Resources */ = {isa = PBXBuildFile; fileRef = F536810E2E145069009541C6 /* README.MD */; };
 		F544686C2E122A4F00CD74D2 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = F544686B2E122A4F00CD74D2 /* Testing */; };
 		F5D9051E2E11F74F00F9AF20 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = F5D9051D2E11F74F00F9AF20 /* Testing */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		F53681082E136EEB009541C6 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		F536810A2E1370B9009541C6 /* PapaTube-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PapaTube-Info.plist"; sourceTree = "<group>"; };
 		F536810D2E1386FA009541C6 /* PapaTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PapaTube.entitlements; sourceTree = "<group>"; };
+		F536810E2E145069009541C6 /* README.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
 		F5D905312E11F9AB00F9AF20 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
 		F5D9059B2E1207F900F9AF20 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 		F51035852E11D01200117901 = {
 			isa = PBXGroup;
 			children = (
+				F536810E2E145069009541C6 /* README.MD */,
 				F536810D2E1386FA009541C6 /* PapaTube.entitlements */,
 				F536810A2E1370B9009541C6 /* PapaTube-Info.plist */,
 				F5D9059B2E1207F900F9AF20 /* .gitignore */,
@@ -272,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F536810F2E145071009541C6 /* README.MD in Resources */,
 				F53681092E136EEB009541C6 /* Secrets.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
