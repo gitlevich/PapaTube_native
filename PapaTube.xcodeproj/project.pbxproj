@@ -48,7 +48,9 @@
 				UI/PapaTubeUITests.swift,
 				UI/PapaTubeUITestsLaunchTests.swift,
 				Unit/AppConfigTest.swift,
-				Unit/PapaTubeTests.swift,
+				Unit/Mocks.swift,
+				Unit/PlaylistCacheTest.swift,
+				Unit/PlaylistStoreTest.swift,
 				Unit/VideoServiceTests.swift,
 			);
 			target = F510358D2E11D01200117901 /* PapaTube */;
@@ -57,7 +59,9 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Unit/AppConfigTest.swift,
-				Unit/PapaTubeTests.swift,
+				Unit/Mocks.swift,
+				Unit/PlaylistCacheTest.swift,
+				Unit/PlaylistStoreTest.swift,
 				Unit/VideoServiceTests.swift,
 			);
 			target = F510359C2E11D01400117901 /* PapaTubeTests */;

@@ -7,7 +7,11 @@
 
 import Foundation
 
-actor VideoService {
+protocol VideoServicing {
+    func findMatching(_ spec: PlaylistSpec) async throws -> [Video]
+}
+
+actor VideoService: VideoServicing {
     private let apiKey: String
     private let session: URLSession = .shared
 

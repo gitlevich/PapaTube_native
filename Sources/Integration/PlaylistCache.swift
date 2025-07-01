@@ -5,19 +5,9 @@
 //  Created by Vladimir Gitlevich on 6/30/25.
 //
 
-import CryptoKit
 import Foundation
-import Observation 
+import Observation
 import SwiftData
-
-// Stable key for caching
-extension PlaylistSpec {
-    fileprivate var cacheKey: String {
-        let data = try! JSONEncoder().encode(self)
-        let digest = SHA256.hash(data: data)
-        return digest.map { String(format: "%02x", $0) }.joined()
-    }
-}
 
 // ---------- SwiftData entity ----------
 @Model
@@ -32,25 +22,26 @@ final class CachedPlaylist {
 
     // MARK: Init / mapping
     init(from playlist: Playlist) {
-        id = playlist.spec.cacheKey
+        let key = playlist.spec.cacheKey
+        id = key
         title = playlist.name
-        videos = playlist.videos  // ← value copy
+        videos = playlist.videos
         spec = playlist.spec
     }
 
     func toDomain() -> Playlist {
-        Playlist(
-            id: UUID(uuidString: id) ?? UUID(),
-            name: title,
-            videos: videos,
-            spec: spec
-        )
+        spec.asPlaylist(with: videos)
     }
+}
+
+protocol PlaylistCaching {
+    func lookup(_ spec: PlaylistSpec) async throws -> Playlist?
+    func persist(_ playlist: Playlist) async throws
 }
 
 // ---------- thin cache adapter ----------
 @MainActor
-final class PlaylistCache {
+final class PlaylistCache: PlaylistCaching {
     private let ctx: ModelContext
 
     init(ctx: ModelContext) {
@@ -69,10 +60,23 @@ final class PlaylistCache {
         return nil
     }
 
-    /// Persist latest metadata for future hits.
+    /// Persist latest metadata for future hits (up‑sert by spec key).
     func persist(_ playlist: Playlist) async throws {
-        // replace old record (unique id ensures upsert)
-        ctx.insert(CachedPlaylist(from: playlist))
+        let key = playlist.spec.cacheKey
+        let desc = FetchDescriptor<CachedPlaylist>(
+            predicate: #Predicate { $0.id == key }
+        )
+
+        if let existing = try ctx.fetch(desc).first {
+            // overwrite mutable fields
+            existing.title     = playlist.name
+            existing.videos    = playlist.videos
+            existing.spec      = playlist.spec
+            existing.updatedAt = .now
+        } else {
+            ctx.insert(CachedPlaylist(from: playlist))
+        }
+
         try ctx.save()
     }
 }

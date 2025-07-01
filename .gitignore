@@ -28,3 +28,5 @@ Secrets.plist
 # Local configuration
 *.local
 *.private
+# SpecStory explanation file
+.specstory/.what-is-this.md

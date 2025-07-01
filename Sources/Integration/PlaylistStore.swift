@@ -7,10 +7,10 @@
 
 // Integration
 final class PlaylistStore: PlaylistRepository {
-    private let remote: VideoService
-    private let local: PlaylistCache
+    private let remote: VideoServicing
+    private let local: PlaylistCaching
 
-    init(remote: VideoService, local: PlaylistCache) {
+    init(remote: VideoServicing, local: PlaylistCaching) {
         self.remote = remote
         self.local = local
     }
@@ -19,11 +19,7 @@ final class PlaylistStore: PlaylistRepository {
         if let cached = try await local.lookup(spec) { return cached }
 
         let videos = try await remote.findMatching(spec)  // network
-        let playlist = Playlist.make(
-            name: spec.keywords.joined(separator: " "),
-            videos: videos,
-            spec: spec
-        )
+        let playlist = spec.asPlaylist(with: videos)
         try await local.persist(playlist)  // SwiftData
         return playlist
     }

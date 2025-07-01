@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Video: Sendable, Codable {
+struct Video: Sendable, Codable, Hashable, Equatable {
     let youtubeId: String
     let title: String
     let thumbnailUrl: String
