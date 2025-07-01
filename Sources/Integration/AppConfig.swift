@@ -5,25 +5,37 @@
 //  Created by Vladimir Gitlevich on 6/29/25.
 //
 
-import DotEnv
 import Foundation
 
 public struct AppConfig {
-    enum Error: Swift.Error {
+    public enum Error: Swift.Error {
         case missingKey
-        case missingDotEnv
     }
 
-    let youtubeApiKey: String
+    public let youtubeApiKey: String
 
-    init(environment: [String: String] = ProcessInfo.processInfo.environment) throws {
-        guard let key = environment[.youtube] else {
-            throw Error.missingKey
+    /// Reads the API key from the app's Info.plist (key: `YouTubeAPIKey`).
+    /// Fallback: environment variable `YOUTUBE_DATA_API_KEY` – convenient for CLI / CI.
+    public init(bundle: Bundle? = .main,
+                environment: [String: String] = ProcessInfo.processInfo.environment) throws {
+
+        // 1. Prefer explicit environment variable (handy for tests / CI).
+        if let key = environment[EnvKey.youtube.rawValue], !key.isEmpty {
+            youtubeApiKey = key
+            return
         }
-        youtubeApiKey = key
+
+        // 2. Fallback to bundle-embedded value.
+        if let bundle,
+           let key = bundle.infoDictionary?["YouTubeAPIKey"] as? String,
+           !key.isEmpty {
+            youtubeApiKey = key
+            return
+        }
+
+        throw Error.missingKey
     }
 }
-
 
 public enum EnvKey: String {
     case youtube = "YOUTUBE_DATA_API_KEY"

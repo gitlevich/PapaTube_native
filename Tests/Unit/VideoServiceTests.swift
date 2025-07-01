@@ -1,6 +1,5 @@
 import Foundation
 import Testing
-import DotEnv
 
 @testable import PapaTube
 
@@ -16,16 +15,9 @@ struct VideoServiceIntegrationTests {
     private func makeService() throws -> VideoService {
         let bundle = Bundle(for: TestBundleMarker.self)
         
-        guard let envURL = bundle.url(forResource: ".env", withExtension: nil) else {
-            fatalError(".env not found in \(bundle)")
-        }
-        let absPath = envURL.path
-        try DotEnv.load(path: absPath)
-        
-        // Retrieve the API key that DotEnv injected into the environment
         let key = ProcessInfo.processInfo.environment["YOUTUBE_DATA_API_KEY"] ?? ""
         try #require(!key.isEmpty, "`YOUTUBE_DATA_API_KEY` env var not configured – skipping live YouTube integration test.")
-        let appConfig = try AppConfig()
+        let appConfig = try AppConfig(bundle: .main)
         
         return VideoService(appConfig: appConfig)
     }

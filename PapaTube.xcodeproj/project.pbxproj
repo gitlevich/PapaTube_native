@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F53681092E136EEB009541C6 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F53681082E136EEB009541C6 /* Secrets.xcconfig */; };
 		F544686C2E122A4F00CD74D2 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = F544686B2E122A4F00CD74D2 /* Testing */; };
 		F5D9051E2E11F74F00F9AF20 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = F5D9051D2E11F74F00F9AF20 /* Testing */; };
-		F5D905C92E120A6800F9AF20 /* DotEnv in Frameworks */ = {isa = PBXBuildFile; productRef = F5D905C82E120A6800F9AF20 /* DotEnv */; };
 		F5D905CF2E121CFE00F9AF20 /* .env in Resources */ = {isa = PBXBuildFile; fileRef = F5D905C52E12099800F9AF20 /* .env */; };
 		F5D905D02E121D0B00F9AF20 /* .env in Resources */ = {isa = PBXBuildFile; fileRef = F5D905C52E12099800F9AF20 /* .env */; };
 /* End PBXBuildFile section */
@@ -35,6 +35,8 @@
 		F510358E2E11D01200117901 /* PapaTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PapaTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F510359D2E11D01400117901 /* PapaTubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapaTubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51035A72E11D01400117901 /* PapaTubeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapaTubeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F53681082E136EEB009541C6 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		F536810A2E1370B9009541C6 /* PapaTube-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PapaTube-Info.plist"; sourceTree = "<group>"; };
 		F5D905312E11F9AB00F9AF20 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
 		F5D9059B2E1207F900F9AF20 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F5D9059D2E12094900F9AF20 /* .env.example */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = .env.example; sourceTree = "<group>"; };
@@ -99,7 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5D905C92E120A6800F9AF20 /* DotEnv in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +126,7 @@
 		F51035852E11D01200117901 = {
 			isa = PBXGroup;
 			children = (
+				F536810A2E1370B9009541C6 /* PapaTube-Info.plist */,
 				F5D9059B2E1207F900F9AF20 /* .gitignore */,
 				F5D9059D2E12094900F9AF20 /* .env.example */,
 				F5D905C52E12099800F9AF20 /* .env */,
@@ -132,6 +134,7 @@
 				F51035BA2E11EB4C00117901 /* Tests */,
 				F5D905302E11F9AB00F9AF20 /* Frameworks */,
 				F510358F2E11D01200117901 /* Products */,
+				F53681082E136EEB009541C6 /* Secrets.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,7 +177,6 @@
 			);
 			name = PapaTube;
 			packageProductDependencies = (
-				F5D905C82E120A6800F9AF20 /* DotEnv */,
 			);
 			productName = PapaTube;
 			productReference = F510358E2E11D01200117901 /* PapaTube.app */;
@@ -256,7 +258,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				F5D9051C2E11F74F00F9AF20 /* XCRemoteSwiftPackageReference "swift-testing" */,
-				F5D905C72E120A6800F9AF20 /* XCRemoteSwiftPackageReference "DotEnv" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F510358F2E11D01200117901 /* Products */;
@@ -276,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5D905CF2E121CFE00F9AF20 /* .env in Resources */,
+				F53681092E136EEB009541C6 /* Secrets.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +338,7 @@
 /* Begin XCBuildConfiguration section */
 		F51035AF2E11D01400117901 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F53681082E136EEB009541C6 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -400,6 +403,7 @@
 		};
 		F51035B02E11D01400117901 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F53681082E136EEB009541C6 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -468,6 +472,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PapaTube-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -500,6 +505,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PapaTube-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -646,14 +652,6 @@
 				minimumVersion = 6.1.1;
 			};
 		};
-		F5D905C72E120A6800F9AF20 /* XCRemoteSwiftPackageReference "DotEnv" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/swiftpackages/DotEnv.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -666,11 +664,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F5D9051C2E11F74F00F9AF20 /* XCRemoteSwiftPackageReference "swift-testing" */;
 			productName = Testing;
-		};
-		F5D905C82E120A6800F9AF20 /* DotEnv */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F5D905C72E120A6800F9AF20 /* XCRemoteSwiftPackageReference "DotEnv" */;
-			productName = DotEnv;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

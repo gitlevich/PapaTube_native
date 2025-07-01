@@ -3,31 +3,32 @@
 //  PapaTubeTests
 
 import Testing
+import Foundation
 
 @testable import PapaTube
 
 @Suite("AppConfig")
 struct AppConfigTests {
     
-    @Test("throws if env dictionary is empty")
+    @Test("throws when neither env nor bundle provides the key")
     func envEmpty() throws {
         try #require(throws: AppConfig.Error.self) {
-            _ = try AppConfig(environment: [:])
+            _ = try AppConfig(bundle: nil, environment: [:])
         }
     }
     
-    @Test("throws if YOUTUBE_API_KEY is absent")
+    @Test("throws if bundle lacks key and env variable is different")
     func keyMissing() throws {
         let stubEnv = ["SOME_OTHER_KEY": "foo"]
         try #require(throws: AppConfig.Error.self) {
-            _ = try AppConfig(environment: stubEnv)
+            _ = try AppConfig(bundle: nil, environment: stubEnv)
         }
     }
     
-    @Test("succeeds when YOUTUBE_API_KEY is present")
+    @Test("succeeds when YOUTUBE_DATA_API_KEY is present")
     func keyPresent() throws {
-        let stubEnv = ["YOUTUBE_API_KEY": "abc123"]
-        let config = try AppConfig(environment: stubEnv)
+        let stubEnv = ["YOUTUBE_DATA_API_KEY": "abc123"]
+        let config = try AppConfig(bundle: nil, environment: stubEnv)
         #expect(config.youtubeApiKey == "abc123")
     }
 }
