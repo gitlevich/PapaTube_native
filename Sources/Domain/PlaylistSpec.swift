@@ -14,6 +14,14 @@ struct PlaylistSpec: Sendable, Codable, Hashable, Equatable {
     let keywords: [String]
     let maxResults: Int
     let language: String?
+
+    /// A fallback specification used when the user has not completed onboarding.
+    /// Chosen to deliver a predictable, safe playlist.
+    static let reasonableDefault = PlaylistSpec(
+        keywords: ["relaxing", "music"],
+        maxResults: 15,
+        language: "en"
+    )
 }
 
 // MARK: – Derived helpers
