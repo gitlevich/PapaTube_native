@@ -19,7 +19,7 @@ struct Playlist: Sendable, Codable, Equatable, Hashable {
     /// Bookmark is either custom or derived lazily from the first video.
     var bookmark: Bookmark {
         get {
-            _bookmark ?? videos.first.map { Bookmark(video: $0, seconds: 0) }
+            _bookmark ?? videos.first.map { Bookmark(video: $0) }
                 ?? .none
         }
         set { _bookmark = newValue }
@@ -39,5 +39,18 @@ struct Playlist: Sendable, Codable, Equatable, Hashable {
         self.videos = videos
         self.spec = spec
         self._bookmark = bookmark
+    }
+
+    struct Bookmark: Sendable, Codable, Equatable, Hashable {
+        var video: Video
+
+        /// Seconds offset is stored inside the video.
+        var seconds: Double {
+            get { video.startAt }
+            set { video.startAt = newValue }
+        }
+
+        /// Null object – represents no selection.
+        static let none = Bookmark(video: .none)
     }
 }

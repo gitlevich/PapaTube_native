@@ -82,7 +82,8 @@ actor VideoService: VideoServicing {
                 thumbnailUrl: thumbnailURL,
                 duration: item.contentDetails.duration,
                 url: "https://www.youtube.com/watch?v=\(item.id)",
-                publishedAt: VideoService.iso8601.date(from: item.snippet.publishedAt) ?? .distantPast
+                publishedAt: VideoService.iso8601.date(from: item.snippet.publishedAt) ?? .distantPast,
+                startAt: 0
             )
         }.sorted { $0.publishedAt > $1.publishedAt }
     }

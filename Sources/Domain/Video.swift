@@ -11,9 +11,10 @@ struct Video: Sendable, Codable, Hashable, Equatable {
     let youtubeId: String
     let title: String
     let thumbnailUrl: String
-    let duration: String
+    let duration: String   // ISO-8601 string as returned by YouTube API (e.g. "PT3M42S")
     let url: String
     let publishedAt: Date
+    var startAt: Double = 0          // seconds offset where playback should start (default 0)
 }
 
 extension Video {
@@ -24,7 +25,8 @@ extension Video {
         thumbnailUrl: "",
         duration:     "0",
         url:          "",
-        publishedAt:  .distantPast
+        publishedAt:  .distantPast,
+        startAt:      0
     )
 
     /// Convenience flag: `true` when this instance equals `Video.none`.

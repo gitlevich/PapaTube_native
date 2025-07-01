@@ -19,6 +19,7 @@ extension Video {
             duration:     "60",
             url:          "https://x/\(id)",      // if the property is `String`
             publishedAt:  .now,
+            startAt:      0,
         )
     }
 }
