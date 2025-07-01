@@ -11,7 +11,7 @@ without navigating complexities of the native YouTube player.
 2. Video: a YouTube video
 3. Current video: the playlist video currently displayed in the Playlist 
 4. Playlist: a list of videos in a specific order, built by the caretaker and available for the elderly
-5. Controls: 
+5. Playlist Controls: 
     - play/pause toggle button: pressing it toggles video from paused to playing and back and updates the button icon
     - previous video button: pressing it causes the next video in the playlist to show in the player; 
         disabled if current video is the first
@@ -25,8 +25,6 @@ without navigating complexities of the native YouTube player.
 The target user of this app is a person with difficulties controlling a tablet or a computer. 
 I modeled the stories below on the needs of my father, who developed aphasia and apraxia as the result of stroke, making
 it impossible for him to navigate any UI that requires planning, reading text, etc.
-
-**Primary User (PU)**: 
 
 As a person using the app for entertainment, I want to: 
 
@@ -51,35 +49,12 @@ As a person using the app for entertainment, I want to:
 10. have any touch of the screen outside controls bring them to full brightness so i can locate them if i did lose them 
 11. have the screen not to turn off while i watch the video
 12. have the screen turn off if the video is not playing and i have not touched 
-13. have the app generate playlists based on my watch history
-14. indicate whether i liked a video I watched to help the app build a better playlist 
+
+### Playlists
+
+1. get the Regenerate Playlist button appear when i got bored with current playlist so that i could press it and have the
+    app generate a new one
+2. have the app generate playlists based on my watch history so that the included videos are relevant and interesting to me
 
 
 
---------------------  F U T U R E   O P T I O N A L   S T O R I E S  ----------------------------------------
-
-### Manage the playlist
-
-Here, we let the user build playlist by selecting their topics of interest (configured separately, eg during onboarding)
-These stories describe interactions that may exceed the abilities of the primary user and require help of another. 
-However the goal is to make them as trivial and clear as possible.
-
-1. open playlist builder screen to build a playlist via a special interaction with the screen that is both simple enough for
-    me to do and hard to trigger accidentally
-2. on playlist builder screen, to see topics i am interested in as cards with clear visuals i can select to build my playlist
-3. tap an unselected card to include it into the search
-4. tap a selected card to exclude it from the search
-5. tap a build button that will generate a playlist
-6. preview the playlist as a filmstrip of included videos   
-7. tap a video in the filmstrip to preview it in place  
-
-
-### Onboarding
-
-These stories describe interactions that may require help of a caretaker, so we describe them from the caretaker's point of view
-
-As a **Caretaker**, I want to:
-
-1. configure the language(s) of youtube videos to so that the Primary User builds playlist with videos in familiar language.
-2. define topics my PU cares about to use as YT search criteria for to building playlists interesting to PU
-3. specify max playlist length
