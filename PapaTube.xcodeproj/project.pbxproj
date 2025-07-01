@@ -10,8 +10,6 @@
 		F53681092E136EEB009541C6 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F53681082E136EEB009541C6 /* Secrets.xcconfig */; };
 		F544686C2E122A4F00CD74D2 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = F544686B2E122A4F00CD74D2 /* Testing */; };
 		F5D9051E2E11F74F00F9AF20 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = F5D9051D2E11F74F00F9AF20 /* Testing */; };
-		F5D905CF2E121CFE00F9AF20 /* .env in Resources */ = {isa = PBXBuildFile; fileRef = F5D905C52E12099800F9AF20 /* .env */; };
-		F5D905D02E121D0B00F9AF20 /* .env in Resources */ = {isa = PBXBuildFile; fileRef = F5D905C52E12099800F9AF20 /* .env */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +37,6 @@
 		F536810A2E1370B9009541C6 /* PapaTube-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PapaTube-Info.plist"; sourceTree = "<group>"; };
 		F5D905312E11F9AB00F9AF20 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
 		F5D9059B2E1207F900F9AF20 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		F5D9059D2E12094900F9AF20 /* .env.example */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = .env.example; sourceTree = "<group>"; };
-		F5D905C52E12099800F9AF20 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -128,8 +124,6 @@
 			children = (
 				F536810A2E1370B9009541C6 /* PapaTube-Info.plist */,
 				F5D9059B2E1207F900F9AF20 /* .gitignore */,
-				F5D9059D2E12094900F9AF20 /* .env.example */,
-				F5D905C52E12099800F9AF20 /* .env */,
 				F51035902E11D01200117901 /* Sources */,
 				F51035BA2E11EB4C00117901 /* Tests */,
 				F5D905302E11F9AB00F9AF20 /* Frameworks */,
@@ -276,7 +270,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5D905CF2E121CFE00F9AF20 /* .env in Resources */,
 				F53681092E136EEB009541C6 /* Secrets.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,7 +278,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5D905D02E121D0B00F9AF20 /* .env in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
