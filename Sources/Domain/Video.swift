@@ -15,3 +15,18 @@ struct Video: Sendable, Codable, Hashable, Equatable {
     let url: String
     let publishedAt: Date
 }
+
+extension Video {
+    /// A stable singleton representing the absence of a real `Video` value – useful for default bindings.
+    static let none = Video(
+        youtubeId:    "",
+        title:        "",
+        thumbnailUrl: "",
+        duration:     "0",
+        url:          "",
+        publishedAt:  .distantPast
+    )
+
+    /// Convenience flag: `true` when this instance equals `Video.none`.
+    var isNone: Bool { self == .none }
+}

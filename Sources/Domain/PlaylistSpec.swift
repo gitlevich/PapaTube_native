@@ -34,7 +34,10 @@ extension PlaylistSpec {
 
     /// Construct a domain `Playlist` with a deterministic id.
     func asPlaylist(with videos: [Video]) -> Playlist {
-        Playlist(id: cacheKey, name: keywords.joined(separator: " "), videos: videos, spec: self)
+        Playlist(id: cacheKey,
+                 name: keywords.joined(separator: " "),
+                 videos: videos,
+                 spec: self)
     }
 
     /// Convenience builder mirroring previous `keywords(_:)` helper used in tests.

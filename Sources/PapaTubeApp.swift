@@ -25,7 +25,7 @@ struct PapaTubeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PlayerView(model: PlayerModel())
         }
         .modelContainer(sharedModelContainer)
     }
