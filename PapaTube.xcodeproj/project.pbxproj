@@ -10,7 +10,6 @@
 		F53681092E136EEB009541C6 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F53681082E136EEB009541C6 /* Secrets.xcconfig */; };
 		F536810F2E145071009541C6 /* README.MD in Resources */ = {isa = PBXBuildFile; fileRef = F536810E2E145069009541C6 /* README.MD */; };
 		F55CF3D32E14814100A2FFEB /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55CF3D22E14814100A2FFEB /* Bookmark.swift */; };
-		F55CF3E02E14CC0900A2FFEB /* PeriodDuration in Frameworks */ = {isa = PBXBuildFile; productRef = F55CF3DF2E14CC0900A2FFEB /* PeriodDuration */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F55CF3E02E14CC0900A2FFEB /* PeriodDuration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +181,6 @@
 			);
 			name = PapaTube;
 			packageProductDependencies = (
-				F55CF3DF2E14CC0900A2FFEB /* PeriodDuration */,
 			);
 			productName = PapaTube;
 			productReference = F510358E2E11D01200117901 /* PapaTube.app */;
@@ -262,7 +259,6 @@
 			mainGroup = F51035852E11D01200117901;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F55CF3DE2E14CC0900A2FFEB /* XCRemoteSwiftPackageReference "PeriodDuration" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F510358F2E11D01200117901 /* Products */;
@@ -649,25 +645,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F55CF3DE2E14CC0900A2FFEB /* XCRemoteSwiftPackageReference "PeriodDuration" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/davdroman/PeriodDuration";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.16.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		F55CF3DF2E14CC0900A2FFEB /* PeriodDuration */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F55CF3DE2E14CC0900A2FFEB /* XCRemoteSwiftPackageReference "PeriodDuration" */;
-			productName = PeriodDuration;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F51035862E11D01200117901 /* Project object */;
 }

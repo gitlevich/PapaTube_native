@@ -1,7 +1,9 @@
 import SwiftUI
+import Observation
 
 struct PlayerView: View {
-    @State var model: PlayerModel
+    /// Binding to a shared `PlayerModel` so that parent views can own the source of truth.
+    @Bindable var model: PlayerModel
     @State private var isDimmed = false
 
     private let controlFadeDelay: TimeInterval = 30
