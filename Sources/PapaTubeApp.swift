@@ -10,22 +10,38 @@ import SwiftData
 
 @main
 struct PapaTubeApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+    // Shared SwiftData container
+    let sharedModelContainer: ModelContainer
+    // Single instance of the playlist repository
+    let playlistStore: PlaylistStore
 
+    // MARK: - Init (composition root)
+    init() {
+        // 1. SwiftData setup
+        let schema = Schema([Item.self, CachedPlaylist.self])
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            sharedModelContainer = try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }
-    }()
 
+        // 2. Integration services
+        let cache = PlaylistCache(ctx: sharedModelContainer.mainContext)
+        let appConfig: AppConfig
+        do {
+            appConfig = try AppConfig()
+        } catch {
+            fatalError("Missing YouTube API key: \(error)")
+        }
+        let remote = VideoService(appConfig: appConfig)
+        playlistStore = PlaylistStore(remote: remote, local: cache)
+    }
+
+    // MARK: - Body
     var body: some Scene {
         WindowGroup {
-            PlayerView(model: PlayerModel())
+            RootView(store: playlistStore)
         }
         .modelContainer(sharedModelContainer)
     }
