@@ -22,6 +22,27 @@ extension Video {
             startAt:      0,
         )
     }
+    
+    // Fixtures:
+    static let v1 = Video.stub(id: "1")
+    static let v2 = Video.stub(id: "2")
+    static let v3 = Video.stub(id: "3")
+}
+
+extension Playlist {
+    static func stub(with videos: [Video]) -> Playlist {
+        let spec = PlaylistSpec.reasonableDefault
+        return Playlist(
+            id: spec.cacheKey,
+            name: "test",
+            videos: videos,
+            spec: spec
+        )
+    }
+    
+    // Fixtures:
+    static let empty = stub(with: [])
+    static let playlistOf3 = stub(with: [.v1, .v2, .v3])
 }
 
 

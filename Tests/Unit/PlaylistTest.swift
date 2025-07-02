@@ -5,77 +5,122 @@
 //  Created by Vladimir Gitlevich on 7/1/25.
 //
 
-import Testing
 import Foundation
+import Testing
 
 @testable import PapaTube
 
 @Suite("Playlist")
 struct PlaylistTest {
+
+    @Suite("Bookmark Navigation")
+    struct BookmarkNavigation {
+        
+        @Test
+        func emptyPlaylistShouldHaveNoBookmark() throws {
+            let empty = Playlist.empty
+            #expect(empty.bookmark == .none)
+            #expect(empty.hasNext() == false)
+            #expect(empty.hasPrev() == false)
+        }
+        
+        @Test
+        func emptyPlaylistShouldHaveNoNextBookmark() throws {
+            let empty = Playlist.empty
+            #expect(empty.hasNext() == false)
+        }
+        
+        @Test
+        func emptyPlaylistShouldHaveNoPrevBookmark() throws {
+            let empty = Playlist.empty
+            #expect(empty.hasPrev() == false)
+        }
+
+        @Test
+        func newPlaylistShouldBookmarkFirstVideo() throws {
+            let playlist = Playlist.playlistOf3
+            #expect(playlist.bookmark.video == playlist.videos.first)
+        }
+
+        @Test
+        func newPlaylistShouldHaveNoPrevBookmark() throws {
+            let playlist = Playlist.playlistOf3
+            #expect(playlist.hasPrev() == false)
+        }
+
+        @Test
+        func newPlaylistWithMoreThan2VidosShouldHaveNextBookmark() throws {
+            let playlist = Playlist.playlistOf3
+            #expect(playlist.hasNext() == true)
+        }
+
+        @Test
+        func prevBookmarkAtStartShouldBeNil() throws {
+            let playlist = Playlist.playlistOf3
+
+            #expect(playlist.hasPrev() == false, "precondition: no previous video exists")
+            #expect(playlist.previousBookmark() == nil, "previous bookmark should not exist")
+        }
     
-    // Helper to create playlist with stubs.
-    private func makePlaylist(_ videos: [Video]) -> Playlist {
-        let spec = PlaylistSpec.reasonableDefault
-        return Playlist(id: spec.cacheKey,
-                        name: "test",
-                        videos: videos,
-                        spec: spec)
-    }
+        @Test
+        func nextBookmarkAtRightEdgeShouldBeNil() throws {
+            var playlist  = Playlist.playlistOf3
+            playlist.moveToNext()
+            playlist.moveToNext()
 
-    @Test("empty playlist defaults bookmark to .none")
-    func bookmarkDefaultsToNone() throws {
-        let empty = Playlist(id: "x", name: "empty", videos: [], spec: .reasonableDefault)
-        #expect(empty.bookmark == .none)
-        #expect(empty.hasNext() == false)
-        #expect(empty.hasPrev() == false)
-    }
+            #expect(playlist.nextBookmark() == nil, "precondition: no next video exists")
+            #expect(playlist.hasNext() == false, "next bookmark should not exist")
+        }
 
-    @Test("new playlist with videos bookmarks first video")
-    func newPlaylistBookmarksFirstVideo() throws {
-        let v1 = Video.stub(id: "1")
-        let v2 = Video.stub(id: "2")
-        let pl = makePlaylist([v1, v2])
-        #expect(pl.bookmark.video == v1)
-        #expect(pl.hasPrev() == false)
-        #expect(pl.hasNext() == true)
-    }
+        @Test
+        func playlistParkedOnVideoInTheMiddleShouldHavePreviousBookmark() throws {
+            var playlist = Playlist.playlistOf3
+            playlist.moveToNext()
 
-    @Test("moveToNext and moveToPrev navigate correctly")
-    func navigationMutatesBookmark() throws {
-        var pl = makePlaylist([.stub(id: "1"), .stub(id: "2"), .stub(id: "3")])
+            #expect(playlist.bookmark.video == playlist.videos[1], "precondition: should be on second video")
+            #expect(playlist.hasPrev() == true, "precondition: previous video exists")
 
-        // initial
-        #expect(pl.bookmark.video.youtubeId == "1")
+            #expect(playlist.previousBookmark() != nil, "previous bookmark should exist")
+        }
+        
+        @Test
+        func playlistParkedOnVideoInTheMiddleShouldHaveNextBookmark() throws {
+            var playlist = Playlist.playlistOf3
+            playlist.moveToNext() // move to middle video
 
-        // next 1 -> 2
-        pl.moveToNext()
-        #expect(pl.bookmark.video.youtubeId == "2")
-        #expect(pl.hasPrev() == true)
-        #expect(pl.hasNext() == true)
+            #expect(playlist.bookmark.video == playlist.videos[1], "precondition: should be on second video")
+            #expect(playlist.hasNext() == true, "precondition: previous video exists")
 
-        // next 2 -> 3
-        pl.moveToNext()
-        #expect(pl.bookmark.video.youtubeId == "3")
-        #expect(pl.hasNext() == false)
+            #expect(playlist.nextBookmark() != nil, "previous bookmark should exist")
+        }
+        
+        @Test
+        func navigationMutatesBookmark() throws {
+            var playlist = Playlist.playlistOf3
+            
+            #expect(playlist.videos.count == 3, "precondition")
+            #expect(playlist.videos[0] == Video.v1, "precondition")
+            #expect(playlist.videos[1] == Video.v2, "precondition")
+            #expect(playlist.videos[2] == Video.v3, "precondition")
 
-        // prev 3 -> 2
-        pl.moveToPrev()
-        #expect(pl.bookmark.video.youtubeId == "2")
-    }
+            // initial
+            #expect(playlist.bookmark.video == Video.v1)
 
-    @Test("next/previousBookmark return nil at boundaries")
-    func bookmarkHelpersReturnNilAtEdges() throws {
-        let vids: [Video] = [.stub(id: "1")]
-        var pl = makePlaylist(vids)
+            // next 1 -> 2
+            playlist.moveToNext()
+            #expect(playlist.bookmark.video == Video.v2)
+            #expect(playlist.hasPrev() == true)
+            #expect(playlist.hasNext() == true)
 
-        #expect(pl.previousBookmark() == nil)
-        #expect(pl.hasPrev() == false)
+            // next 2 -> 3
+            playlist.moveToNext()
+            #expect(playlist.bookmark.video == Video.v3)
+            #expect(playlist.hasNext() == false)
 
-        #expect(pl.nextBookmark() == nil)
-        #expect(pl.hasNext() == false)
+            // prev 3 -> 2
+            playlist.moveToPrev()
+            #expect(playlist.bookmark.video == Video.v2)
+        }
 
-        // Add one more video and test nextBookmark()
-        pl = makePlaylist([.stub(id:"1"), .stub(id:"2")])
-        #expect(pl.nextBookmark()?.video.youtubeId == "2")
     }
 }

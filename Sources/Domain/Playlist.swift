@@ -13,17 +13,8 @@ struct Playlist: Sendable, Codable, Equatable, Hashable {
     let videos: [Video]
     let spec: PlaylistSpec
 
-    /// Stored override when user navigates; `nil` means "use default".
-    private var _bookmark: Bookmark? = nil
-
-    /// Bookmark is either custom or derived lazily from the first video.
-    var bookmark: Bookmark {
-        get {
-            _bookmark ?? videos.first.map { Bookmark(video: $0) }
-                ?? .none
-        }
-        set { _bookmark = newValue }
-    }
+    /// Current bookmark (defaults to the first video or `.none`)
+    var bookmark: Bookmark
 
     // MARK: - Init
     /// Member-wise initializer that hides the private backing bookmark.
@@ -38,21 +29,10 @@ struct Playlist: Sendable, Codable, Equatable, Hashable {
         self.name = name
         self.videos = videos
         self.spec = spec
-        self._bookmark = bookmark
+        self.bookmark = bookmark ?? videos.first.map { Bookmark(video: $0) } ?? .none
     }
 
-    struct Bookmark: Sendable, Codable, Equatable, Hashable {
-        var video: Video
-
-        /// Seconds offset is stored inside the video.
-        var seconds: Int {
-            get { video.startAt }
-            set { video.startAt = newValue }
-        }
-
-        /// Null object – represents no selection.
-        static let none = Bookmark(video: .none)
-    }
+    
 
     // MARK: - Navigation helpers
 
