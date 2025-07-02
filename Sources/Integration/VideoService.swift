@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 protocol VideoServicing {
     func findMatching(_ spec: PlaylistSpec) async throws -> [Video]
@@ -23,6 +24,7 @@ actor VideoService: VideoServicing {
     }
 
     func findMatching(_ spec: PlaylistSpec) async throws -> [Video] {
+        Log.videoService.debug("Searching for spec: \(spec.keywords.joined(separator: ", "))")
         // Build the search URL in a type‑safe way so we never end up with an unsupported URL.
         var searchComponents = URLComponents()
         searchComponents.scheme = "https"
@@ -42,8 +44,10 @@ actor VideoService: VideoServicing {
             throw URLError(.badURL)
         }
 
+        Log.videoService.debug("GET \(searchURL, privacy: .public)")
         let (searchData, searchResponse) = try await session.data(from: searchURL)
         guard (searchResponse as? HTTPURLResponse)?.statusCode == 200 else {
+            Log.videoService.error("Search API error: \((searchResponse as? HTTPURLResponse)?.statusCode ?? -1)")
             throw URLError(.badServerResponse)
         }
 
@@ -65,12 +69,15 @@ actor VideoService: VideoServicing {
             throw URLError(.badURL)
         }
 
+        Log.videoService.debug("GET \(videosURL, privacy: .public)")
         let (videosData, videosResponse) = try await session.data(from: videosURL)
         guard (videosResponse as? HTTPURLResponse)?.statusCode == 200 else {
+            Log.videoService.error("Videos API error: \((videosResponse as? HTTPURLResponse)?.statusCode ?? -1)")
             throw URLError(.badServerResponse)
         }
 
         let videosPayload = try JSONDecoder().decode(VideosResponse.self, from: videosData)
+        Log.videoService.debug("Fetched \(videosPayload.items.count) videos")
 
         return videosPayload.items.map { item in
             let thumbnailURL = item.snippet.thumbnails.high?.url ??

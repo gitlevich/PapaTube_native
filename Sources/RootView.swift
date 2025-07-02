@@ -1,4 +1,5 @@
 import SwiftUI
+import OSLog
 
 /// Root view responsible for loading the initial playlist via the provided repository
 /// and showing the appropriate screen when data is ready.
@@ -31,13 +32,16 @@ struct RootView: View {
     }
 
     private func load() {
+        Log.playlist.debug("Loading reasonable default playlist…")
         Task {
             do {
                 let spec = PlaylistSpec.reasonableDefault
                 let p = try await store.load(spec: spec)
                 await MainActor.run { self.playlist = p }
+                Log.playlist.debug("Loaded playlist with \(p.videos.count) videos")
             } catch {
                 await MainActor.run { self.error = error }
+                Log.playlist.error("Failed to load playlist: \(error.localizedDescription, privacy: .public)")
             }
         }
     }
