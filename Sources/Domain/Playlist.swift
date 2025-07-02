@@ -45,7 +45,7 @@ struct Playlist: Sendable, Codable, Equatable, Hashable {
         var video: Video
 
         /// Seconds offset is stored inside the video.
-        var seconds: Double {
+        var seconds: Int {
             get { video.startAt }
             set { video.startAt = newValue }
         }
@@ -99,4 +99,7 @@ struct Playlist: Sendable, Codable, Equatable, Hashable {
     mutating func moveToNext() {
         if let b = nextBookmark() { bookmark = b }
     }
+
+    /// Null object – represents an empty playlist with default spec.
+    static let none = Playlist(id: "", name: "", videos: [], spec: .reasonableDefault)
 }

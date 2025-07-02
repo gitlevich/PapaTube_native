@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		F53681092E136EEB009541C6 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F53681082E136EEB009541C6 /* Secrets.xcconfig */; };
 		F536810F2E145071009541C6 /* README.MD in Resources */ = {isa = PBXBuildFile; fileRef = F536810E2E145069009541C6 /* README.MD */; };
-		F544686C2E122A4F00CD74D2 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = F544686B2E122A4F00CD74D2 /* Testing */; };
 		F55CF3D32E14814100A2FFEB /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55CF3D22E14814100A2FFEB /* Bookmark.swift */; };
-		F5D9051E2E11F74F00F9AF20 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = F5D9051D2E11F74F00F9AF20 /* Testing */; };
+		F55CF3E02E14CC0900A2FFEB /* PeriodDuration in Frameworks */ = {isa = PBXBuildFile; productRef = F55CF3DF2E14CC0900A2FFEB /* PeriodDuration */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +39,7 @@
 		F536810D2E1386FA009541C6 /* PapaTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PapaTube.entitlements; sourceTree = "<group>"; };
 		F536810E2E145069009541C6 /* README.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
 		F55CF3D22E14814100A2FFEB /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		F55CF3E42E14DB0400A2FFEB /* run_ut.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_ut.sh; sourceTree = "<group>"; };
 		F5D905312E11F9AB00F9AF20 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
 		F5D9059B2E1207F900F9AF20 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,6 +51,7 @@
 				UI/PapaTubeUITests.swift,
 				UI/PapaTubeUITestsLaunchTests.swift,
 				Unit/AppConfigTest.swift,
+				Unit/ISO8601DurationTest.swift,
 				Unit/Mocks.swift,
 				Unit/PlaylistCacheTest.swift,
 				Unit/PlaylistStoreTest.swift,
@@ -63,6 +64,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Unit/AppConfigTest.swift,
+				Unit/ISO8601DurationTest.swift,
 				Unit/Mocks.swift,
 				Unit/PlaylistCacheTest.swift,
 				Unit/PlaylistStoreTest.swift,
@@ -104,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F55CF3E02E14CC0900A2FFEB /* PeriodDuration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +114,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5D9051E2E11F74F00F9AF20 /* Testing in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F544686C2E122A4F00CD74D2 /* Testing in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +130,7 @@
 		F51035852E11D01200117901 = {
 			isa = PBXGroup;
 			children = (
+				F55CF3E42E14DB0400A2FFEB /* run_ut.sh */,
 				F536810E2E145069009541C6 /* README.MD */,
 				F536810D2E1386FA009541C6 /* PapaTube.entitlements */,
 				F536810A2E1370B9009541C6 /* PapaTube-Info.plist */,
@@ -181,6 +183,7 @@
 			);
 			name = PapaTube;
 			packageProductDependencies = (
+				F55CF3DF2E14CC0900A2FFEB /* PeriodDuration */,
 			);
 			productName = PapaTube;
 			productReference = F510358E2E11D01200117901 /* PapaTube.app */;
@@ -201,7 +204,6 @@
 			);
 			name = PapaTubeTests;
 			packageProductDependencies = (
-				F5D9051D2E11F74F00F9AF20 /* Testing */,
 			);
 			productName = PapaTubeTests;
 			productReference = F510359D2E11D01400117901 /* PapaTubeTests.xctest */;
@@ -222,7 +224,6 @@
 			);
 			name = PapaTubeUITests;
 			packageProductDependencies = (
-				F544686B2E122A4F00CD74D2 /* Testing */,
 			);
 			productName = PapaTubeUITests;
 			productReference = F51035A72E11D01400117901 /* PapaTubeUITests.xctest */;
@@ -261,7 +262,7 @@
 			mainGroup = F51035852E11D01200117901;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F5D9051C2E11F74F00F9AF20 /* XCRemoteSwiftPackageReference "swift-testing" */,
+				F55CF3DE2E14CC0900A2FFEB /* XCRemoteSwiftPackageReference "PeriodDuration" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F510358F2E11D01200117901 /* Products */;
@@ -650,26 +651,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F5D9051C2E11F74F00F9AF20 /* XCRemoteSwiftPackageReference "swift-testing" */ = {
+		F55CF3DE2E14CC0900A2FFEB /* XCRemoteSwiftPackageReference "PeriodDuration" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-testing.git";
+			repositoryURL = "https://github.com/davdroman/PeriodDuration";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.1.1;
+				minimumVersion = 0.16.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F544686B2E122A4F00CD74D2 /* Testing */ = {
+		F55CF3DF2E14CC0900A2FFEB /* PeriodDuration */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F5D9051C2E11F74F00F9AF20 /* XCRemoteSwiftPackageReference "swift-testing" */;
-			productName = Testing;
-		};
-		F5D9051D2E11F74F00F9AF20 /* Testing */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F5D9051C2E11F74F00F9AF20 /* XCRemoteSwiftPackageReference "swift-testing" */;
-			productName = Testing;
+			package = F55CF3DE2E14CC0900A2FFEB /* XCRemoteSwiftPackageReference "PeriodDuration" */;
+			productName = PeriodDuration;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

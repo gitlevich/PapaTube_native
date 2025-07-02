@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PlayerView: View {
-    @Bindable var model: PlayerModel
+    @State var model: PlayerModel
     @State private var isDimmed = false
 
     private let controlFadeDelay: TimeInterval = 30

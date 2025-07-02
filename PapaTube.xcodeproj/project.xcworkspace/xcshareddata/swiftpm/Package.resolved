@@ -1,6 +1,33 @@
 {
-  "originHash" : "75e387267283f0359a414c12f86d89eff6322b8f5559bd59449dc0c6f850cc45",
+  "originHash" : "a8cb4e765be7ff4d1269792ed8b4c53fda6103d2b09351b73b960cc673d76706",
   "pins" : [
+    {
+      "identity" : "periodduration",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/davdroman/PeriodDuration",
+      "state" : {
+        "revision" : "8a2805a1761f5c18c7327d717675abc860b94a30",
+        "version" : "0.16.0"
+      }
+    },
+    {
+      "identity" : "swift-case-paths",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-case-paths",
+      "state" : {
+        "revision" : "9810c8d6c2914de251e072312f01d3bf80071852",
+        "version" : "1.7.1"
+      }
+    },
+    {
+      "identity" : "swift-parsing",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-parsing",
+      "state" : {
+        "revision" : "3432cb81164dd3d69a75d0d63205be5fbae2c34b",
+        "version" : "0.14.1"
+      }
+    },
     {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
@@ -11,12 +38,12 @@
       }
     },
     {
-      "identity" : "swift-testing",
+      "identity" : "xctest-dynamic-overlay",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-testing.git",
+      "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
       "state" : {
-        "revision" : "32cf2c500cbc1b45bd4b4803a2a108995f2d31e6",
-        "version" : "6.1.1"
+        "revision" : "39de59b2d47f7ef3ca88a039dff3084688fe27f4",
+        "version" : "1.5.2"
       }
     }
   ],
