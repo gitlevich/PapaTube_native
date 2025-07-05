@@ -16,10 +16,9 @@ extension Video {
             youtubeId:    id,
             title:        "stub",
             thumbnailUrl: "https://x/\(id)/thumb",
-            duration:     "60",
+            duration:     Duration.seconds(60),
             url:          "https://x/\(id)",      // if the property is `String`
             publishedAt:  .now,
-            startAt:      0,
         )
     }
     
@@ -42,6 +41,7 @@ extension Playlist {
     
     // Fixtures:
     static let empty = stub(with: [])
+    static let playlistOf1 = stub(with: [.v1])
     static let playlistOf3 = stub(with: [.v1, .v2, .v3])
 }
 

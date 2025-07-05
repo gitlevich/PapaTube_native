@@ -15,15 +15,15 @@ enum ISO8601Duration {
     /// Returns the total number of seconds represented by the ISO-8601
     /// duration `string`. Malformed input returns `0` (same behaviour as
     /// before the formatter was removed).
-    static func seconds(from string: String) -> Double {
+    static func seconds(from string: String) -> Int {
         let range = NSRange(location: 0, length: string.utf16.count)
         guard let match = regex.firstMatch(in: string, options: [], range: range) else {
             return 0
         }
 
-        func value(at index: Int) -> Double {
+        func value(at index: Int) -> Int {
             guard let r = Range(match.range(at: index), in: string) else { return 0 }
-            return Double(string[r]) ?? 0
+            return Int(string[r]) ?? 0
         }
 
         let weeks   = value(at: 1)
@@ -38,4 +38,8 @@ enum ISO8601Duration {
                minutes * 60      +
                seconds
     }
-} 
+    
+    static func duration(from string: String) -> Duration {
+        .seconds(Int64(seconds(from: string)))
+    }
+}

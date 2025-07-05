@@ -15,22 +15,17 @@ final class PlayerModel {
     /// 0…1 progress proxy for the scrub bar.
     var progress: Double {
         get {
-            guard durationSeconds > 0 else { return 0 }
-            return playlist.bookmark.seconds.toDouble() / durationSeconds
+            return Double(playlist.currentVideo.progressAt(second: playlist.currentVideoStart))
         }
         set {
-            playlist.bookmark.seconds = Int((max(0, min(1, newValue)) * durationSeconds).rounded())
+            playlist.currentVideoStart = newValue.seconds(from: playlist.currentVideo.duration)
         }
     }
 
     // MARK: - Derived helpers
-    var currentVideo: Video { playlist.bookmark.video }
+    var currentVideo: Video { playlist.currentVideo }
     var hasNext: Bool { playlist.hasNext() }
     var hasPrev: Bool { playlist.hasPrev() }
-
-    private var durationSeconds: Double {
-        ISO8601Duration.seconds(from: currentVideo.duration)
-    }
 
     // MARK: - Init
     init(playlist: Playlist = .none) {
@@ -51,6 +46,7 @@ final class PlayerModel {
         isPlaying = false
     }
 
+    // TODO: review; i think this implementation is not useful
     // MARK: - Private
     private func updateDerivedState() {
         // Reset playing state if there is no real video.
@@ -58,10 +54,14 @@ final class PlayerModel {
     }
 }
 
-
-extension Int {
-    /// Convenience conversion from `Int` to `Double`.
-    func toDouble() -> Double {
-        Double(self)
+// MARK: - Progress conversion helper
+private extension Double {
+    /// Converts a 0…1 progress value into seconds offset from the start.
+    /// - Parameter total: total duration in seconds.
+    /// - Returns: whole‑second offset from the start.
+    /// - Precondition: `self` must be in 0…1 and `total` ≥ 0.
+    func seconds(from total: Duration) -> Int {
+        precondition((0...1).contains(self), "Progress must be between 0 and 1")
+        return Int((self * Double(total.secondsInt)).rounded())
     }
 }

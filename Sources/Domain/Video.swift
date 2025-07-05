@@ -11,10 +11,15 @@ struct Video: Sendable, Codable, Hashable, Equatable {
     let youtubeId: String
     let title: String
     let thumbnailUrl: String
-    let duration: String   // ISO-8601 string as returned by YouTube API (e.g. "PT3M42S")
+    let duration: Duration   // ISO-8601 string as returned by YouTube API (e.g. "PT3M42S")
     let url: String
     let publishedAt: Date
-    var startAt: Int = 0          // seconds offset where playback should start (default 0)
+    
+    /// Returns watch progress as a `Percent` using integer arithmetic.
+    /// Traps if duration is zero.
+    func progressAt(second: Int) -> Double {
+        Double(second) * 100 / duration.secondsInt
+    }
 }
 
 extension Video {
@@ -23,12 +28,17 @@ extension Video {
         youtubeId:    "",
         title:        "",
         thumbnailUrl: "",
-        duration:     "0",
+        duration:     Duration.seconds(60),
         url:          "",
-        publishedAt:  .distantPast,
-        startAt:      0
+        publishedAt:  .distantPast
     )
 
     /// Convenience flag: `true` when this instance equals `Video.none`.
     var isNone: Bool { self == .none }
 }
+
+extension Duration {
+    /// Seconds in the `Duration` as `Double`.
+    var secondsInt: Double { Double(components.seconds) }
+}
+
