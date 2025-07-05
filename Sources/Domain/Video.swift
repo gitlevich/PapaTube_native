@@ -11,7 +11,7 @@ struct Video: Sendable, Codable, Hashable, Equatable {
     let youtubeId: String
     let title: String
     let thumbnailUrl: String
-    let duration: Duration   // ISO-8601 string as returned by YouTube API (e.g. "PT3M42S")
+    let duration: Duration
     let url: String
     let publishedAt: Date
     
@@ -20,9 +20,13 @@ struct Video: Sendable, Codable, Hashable, Equatable {
     func progressAt(second: Int) -> Double {
         Double(second) * 100 / duration.secondsInt
     }
-}
-
-extension Video {
+    
+    /// Returns the seconds from start based on progress.
+    func secondsFromStart(at progress: Double) -> Int {
+        precondition((0...1).contains(progress), "Progress myst be between 0 and 1")
+        return Int((progress * duration.secondsInt).rounded())
+    }
+    
     /// A stable singleton representing the absence of a real `Video` value – useful for default bindings.
     static let none = Video(
         youtubeId:    "",
@@ -37,8 +41,4 @@ extension Video {
     var isNone: Bool { self == .none }
 }
 
-extension Duration {
-    /// Seconds in the `Duration` as `Double`.
-    var secondsInt: Double { Double(components.seconds) }
-}
 

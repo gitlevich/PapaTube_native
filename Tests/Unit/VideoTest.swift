@@ -41,4 +41,13 @@ struct VideoTest {
     func progressAtHalfShouldBe50Percent() throws {
         #expect(sixtySecondsVideo.progressAt(second: 30) == 50)
     }
+    
+    @Test
+    func secondsFromStartShouldBeRecoverableFromProgress() {
+        #expect(sixtySecondsVideo.secondsFromStart(at: 0.0) == 0)
+        #expect(sixtySecondsVideo.secondsFromStart(at: 0.25) == 15)
+        #expect(sixtySecondsVideo.secondsFromStart(at: 0.5) == 30)
+        #expect(sixtySecondsVideo.secondsFromStart(at: 0.75) == 45)
+        #expect(sixtySecondsVideo.secondsFromStart(at: 1.0) == 60)
+    }
 }

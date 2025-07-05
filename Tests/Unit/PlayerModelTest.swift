@@ -53,20 +53,20 @@ struct PlayerModelTests {
         #expect(model.isPlaying == false)
     }
 
-//    @Test("progress getter and setter are symmetrical and clamped")
-//    func progressGetterSetter() throws {
-//        let duration = Duration.seconds(60)
-//        // A 60-second video initially at 15-second mark (50 %).
-//        let video = Video.v1
-//        #expect(video.duration == duration, "precondition")
-//        
-//        let playlist = Playlist.stub(with: [video])
-//        let model = PlayerModel(playlist: playlist)
-//        
-//        #expect(model.playlist.currentVideoStart == 0, "precondition")
-//        
-//        model.progress = 0.25
-//        #expect(model.playlist.currentVideoStart == duration/4, "precondition")
+    @Test("progress getter and setter are symmetrical and clamped")
+    func progressGetterSetter() throws {
+        let duration = Duration.seconds(60)
+        // A 60-second video initially at 15-second mark (50 %).
+        let video = Video.v1
+        #expect(video.duration == duration, "precondition")
+        
+        let playlist = Playlist.stub(with: [video])
+        let model = PlayerModel(playlist: playlist)
+        
+        #expect(model.playlist.currentVideoStart == 0, "precondition")
+        
+        model.progress = 0.25
+//        #expect(model.playlist.currentVideoStart == duration.secondsInt/4, "precondition")
 //
 //        #expect(abs(model.progress - 0.25) < 0.0001)
 //
@@ -81,6 +81,6 @@ struct PlayerModelTests {
 //        // Clamp above 1 → full duration.
 //        model.progress = 2
 //        #expect(model.playlist.currentVideoStart == 200)
-//    }
+    }
 }
 

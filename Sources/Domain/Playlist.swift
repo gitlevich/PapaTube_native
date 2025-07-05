@@ -86,7 +86,6 @@ struct Playlist: Sendable, Codable, Equatable, Hashable {
             result = entries.first?.video
         }
 
-        print("Next is \(String(describing: result?.youtubeId))")
         return result
     }
 

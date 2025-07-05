@@ -15,4 +15,5 @@ private extension Double {
         precondition(total >= 0, "Duration must be non‑negative")
         return Int((self * Double(total)).rounded())
     }
+    
 }
